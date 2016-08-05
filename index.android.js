@@ -31,4 +31,4 @@ class androidDrinkDrankDrunk extends Component {
 
 export default store;
 
-AppRegistry.registerComponent('androidDrinkDrankDrunk', () => androidDrinkDrankDrunk);
+AppRegistry.registerComponent('tech.drinkdrankdrunk', () => androidDrinkDrankDrunk);

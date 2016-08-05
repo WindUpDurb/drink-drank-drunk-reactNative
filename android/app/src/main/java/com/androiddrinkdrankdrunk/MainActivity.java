@@ -1,7 +1,7 @@
-package com.androiddrinkdrankdrunk;
+package tech.drinkdrankdrunk;
 
 import com.facebook.react.ReactActivity;
-import com.github.xinthink.rnmk.ReactMaterialKitPackage;
+import co.apptailor.googlesignin.RNGoogleSigninPackage;
 
 public class MainActivity extends ReactActivity {
 
@@ -11,6 +11,6 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "androidDrinkDrankDrunk";
+        return "tech.drinkdrankdrunk";
     }
 }

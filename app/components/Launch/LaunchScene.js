@@ -7,17 +7,24 @@ import {connect} from "react-redux";
 import {styles} from "../../Styles";
 import {Actions} from "react-native-router-flux";
 import * as BeerAPI from "../../actions/BeerAPI";
+import * as UserActions from "../../actions/UserActions";
 import {bindActionCreators} from "redux";
+import {GoogleSignin, GoogleSigninButton} from "react-native-google-signin";
+
 
 class LaunchScene extends React.Component {
-    
     constructor(props) {
         super(props);
 
+        this.signIn = this.signIn.bind(this);
     }
 
     componentWillMount() {
-        this.props.BeerAPI.checkForBeerDirectories()
+        this.props.BeerAPI.checkForBeerDirectories();
+    }
+
+    signIn() {
+        this.props.UserActions.triggerSignIn();
     }
 
     
@@ -36,6 +43,13 @@ class LaunchScene extends React.Component {
                     text="Let's find some beers"
                     onPress={Actions.home}/>
 
+                <GoogleSigninButton
+                    style={{width: 48, height: 48}}
+                    size={GoogleSigninButton.Size.Icon}
+                    color={GoogleSigninButton.Color.Dark}
+                    onPress={this.signIn}/>
+
+
             </Image>
                
         );
@@ -43,7 +57,8 @@ class LaunchScene extends React.Component {
 }
 
 LaunchScene.propTypes = {
-    BeerAPI: PropTypes.object
+    BeerAPI: PropTypes.object,
+    UserActions: PropTypes.object
 };
 
 function mapStateToProps(state, ownProps) {
@@ -54,7 +69,8 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        BeerAPI: bindActionCreators(BeerAPI, dispatch)
+        BeerAPI: bindActionCreators(BeerAPI, dispatch),
+        UserActions: bindActionCreators(UserActions, dispatch)
     }
 }
 

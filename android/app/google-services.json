@@ -1,0 +1,51 @@
+{
+  "project_info": {
+    "project_number": "258716656555",
+    "project_id": "drink-drank-drunk-native"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:258716656555:android:b273e6d3f0417837",
+        "android_client_info": {
+          "package_name": "tech.drinkdrankdrunk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "258716656555-8624d8jp04sdvhnvi9k9sork8nmrk2kl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "tech.drinkdrankdrunk",
+            "certificate_hash": "5F77CFFDCF7C9ECEFE992DA4B9E5D0305F855DC6"
+          }
+        },
+        {
+          "client_id": "258716656555-33qtcogqqkmmc87cqenm2qs2do86t1cb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVtW4Ev5TULu1AoVMvbRvFXF3xb5YxZT0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-82089547-1"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
