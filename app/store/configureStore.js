@@ -9,7 +9,7 @@ export default function configureStore(initialState) {
      return createStore(
         rootReducer,
         initialState,
-        compose(applyMiddleware(thunk),
+        compose(applyMiddleware(thunk)
         )
     );
 }

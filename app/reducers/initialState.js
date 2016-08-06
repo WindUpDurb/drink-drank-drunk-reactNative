@@ -8,4 +8,6 @@ export const beerDirectories = {
 
 export const requestsInProgress = 0;
 
+export const activeUser = null;
+
 export const scene = {};

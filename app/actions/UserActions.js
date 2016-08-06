@@ -2,9 +2,17 @@
 
 import React from "react";
 import {GoogleSignin} from "react-native-google-signin";
+import * as types from "./actionTypes";
+import * as requestStatusActions from "./requestStatusActions";
 
-export function authenticateOnDDDServer(idToken) {
+export function activeUserConfirmed(activeUser) {
+    return {
+        type: types.UPDATE_ACTIVE_USER,
+        activeUser: activeUser
+    };
+}
 
+export function authenticateOnDDDServer(user) {
         let headers = new Headers();
         headers.append("Content-Type", "application/json");
         headers.append("dddandroidauth", "ItsMeHereISwear");
@@ -14,23 +22,27 @@ export function authenticateOnDDDServer(idToken) {
             headers: headers,
             mode: "cors",
             cache: "default",
-            body: JSON.stringify({idToken})
+            body: JSON.stringify({idToken: user.idToken})
         };
         return fetch("http://www.drinkdrankdrunk.tech/api/users/authenticateMobileUser", options)
             .then(response => {
                 return response.json();
             })
             .then(parsedResponse => {
-                console.log("Parsed response: ", parsedResponse);
+                let activeUser = user;
+                return user.userBeerData = parsedResponse;
+
             })
             .catch(error => {
-                console.log("Error1: ", error);
+                dispatch(requestStatusActions.receivedRequestError());
+                console.log("Authentication failed: ", error);
             })
 
 }
 
 export function triggerSignIn() {
     return function (dispatch) {
+        dispatch(requestStatusActions.requestSent());
         return GoogleSignin.hasPlayServices({ autoResolve: true })
             .then(response => {
                 GoogleSignin.configure({
@@ -39,17 +51,26 @@ export function triggerSignIn() {
                     .then(() => {
                         GoogleSignin.signIn()
                             .then((user) => {
-                                console.log(user);
-                                //this.setState({user: user});
-                                authenticateOnDDDServer(user.idToken);
+                                authenticateOnDDDServer(user)
+                                    .then(authedUser => {
+                                        dispatch(requestStatusActions.receivedRequestSuccess());
+                                        console.log("Final: ", authedUser);
+                                        dispatch(activeUserConfirmed(authedUser));
+                                    })
+                                    .catch(error => {
+                                        console.log("Error: ", error);
+                                        dispatch(requestStatusActions.receivedRequestError());
+                                    })
                             })
                             .catch((err) => {
-                                console.log('WRONG SIGNIN', err);
+                                console.log('The sign-in attempt failed.', err);
+                                dispatch(requestStatusActions.receivedRequestError());
                             });
                     });
             })
             .catch(error => {
                 console.log("Play services error", error);
+                dispatch(requestStatusActions.receivedRequestError());
             })
 
     }

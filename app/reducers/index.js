@@ -4,6 +4,7 @@ import { combineReducers } from "redux";
 import beerDirectoriesReducer from "./beerDirectoriesReducer";
 import routingReducer from "./routingReducer";
 import requestStatusReducer from "./requestStatusReducer";
+import userAndAuthReducer from "./userAndAuthReducer";
 
 
 const rootReducer = combineReducers({
@@ -11,7 +12,8 @@ const rootReducer = combineReducers({
     //or short-hand property name of just: `courses`
     beerDirectories: beerDirectoriesReducer,
     routes: routingReducer,
-    fetching: requestStatusReducer
+    fetching: requestStatusReducer,
+    activeUser: userAndAuthReducer
 });
 
 export default rootReducer;
