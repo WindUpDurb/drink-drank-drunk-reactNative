@@ -5,3 +5,7 @@ export const beerDirectories = {
     currentBeerStyle: null,
     currentBeer: null
 };
+
+export const requestsInProgress = 0;
+
+export const scene = {};

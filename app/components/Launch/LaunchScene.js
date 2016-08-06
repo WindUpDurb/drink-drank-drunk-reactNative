@@ -1,12 +1,12 @@
 "use strict";
 
 import React, {PropTypes} from "react";
-import {View, Text, Button, Image} from "react-native";
+import {View, Text, Button, Image, ActivityIndicator} from "react-native";
 import {RenderButton} from "../common/RenderButton";
 import {connect} from "react-redux";
 import {styles} from "../../Styles";
 import {Actions} from "react-native-router-flux";
-import * as BeerAPI from "../../actions/BeerAPI";
+import * as BeerActions from "../../actions/BeerActions";
 import * as UserActions from "../../actions/UserActions";
 import {bindActionCreators} from "redux";
 import {GoogleSignin, GoogleSigninButton} from "react-native-google-signin";
@@ -20,7 +20,7 @@ class LaunchScene extends React.Component {
     }
 
     componentWillMount() {
-        this.props.BeerAPI.checkForBeerDirectories();
+        this.props.BeerActions.loadBeerDirectories();
     }
 
     signIn() {
@@ -30,22 +30,24 @@ class LaunchScene extends React.Component {
     
     render() {
         return (
-                
             <Image 
                 style={styles.backgroundImageContainer}
                 source={require("../../Images/launchImage.jpg")}>
 
-                <Text>
+                <ActivityIndicator
+                    style={[styles.center, styles.loadingIndicator]}
+                    animating={this.props.fetching}
+                    size="large"/>
+                
+
+                <Text style={styles.launchText}>
                     Drink, Drank, Drunk
                 </Text>
-
                 <GoogleSigninButton
                     style={{width: 48, height: 48}}
                     size={GoogleSigninButton.Size.Icon}
                     color={GoogleSigninButton.Color.Dark}
                     onPress={this.signIn}/>
-
-
             </Image>
                
         );
@@ -53,19 +55,21 @@ class LaunchScene extends React.Component {
 }
 
 LaunchScene.propTypes = {
-    BeerAPI: PropTypes.object,
-    UserActions: PropTypes.object
+    BeerActions: PropTypes.object,
+    UserActions: PropTypes.object,
+    fetching: PropTypes.bool
 };
 
 function mapStateToProps(state, ownProps) {
+    let fetching = state.fetching > 0;
     return {
-        
+        fetching
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        BeerAPI: bindActionCreators(BeerAPI, dispatch),
+        BeerActions: bindActionCreators(BeerActions, dispatch),
         UserActions: bindActionCreators(UserActions, dispatch)
     }
 }

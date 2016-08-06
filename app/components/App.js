@@ -1,11 +1,12 @@
 "use strict";
 import React, { PropTypes } from "react";
 import {bindActionCreators} from "redux";
-import {View, Text} from "react-native";
+import {View, Text, ActivityIndicator} from "react-native";
 import HomeScene from "./Home/HomeScene";
 import LaunchScene from "./Launch/LaunchScene";
 import {connect} from "react-redux";
-import {Scene, Router} from "react-native-router-flux";
+import {styles} from "../Styles";
+
 
 class App extends React.Component {
     constructor(props) {
@@ -13,20 +14,10 @@ class App extends React.Component {
     }
 
     render() {
-
         return (
-            <Router>
-                <Scene key="root">
-                    <Scene
-                        key="home"
-                        component={HomeScene}/>
-                    <Scene
-                        key="launch"
-                        component={LaunchScene}
-                        hideNavBar={true}
-                        initial={true}/>
-                </Scene>
-            </Router>
+            <View>
+                <Text>jklsfdajkl</Text>
+            </View>
         );
     }
 }
@@ -37,8 +28,10 @@ App.propTypes = {
 };
 
 function mapStateToProps(state, ownProps) {
+    console.log("Own Props: ", ownProps);
+    console.log("state: ", state);
     return {
-
+        children: ownProps.children
     };
 }
 
