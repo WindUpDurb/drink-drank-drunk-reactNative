@@ -38,10 +38,6 @@ class LaunchScene extends React.Component {
                 <Text>
                     Drink, Drank, Drunk
                 </Text>
-                <RenderButton
-                    style={styles.launchButton}
-                    text="Let's find some beers"
-                    onPress={Actions.home}/>
 
                 <GoogleSigninButton
                     style={{width: 48, height: 48}}
