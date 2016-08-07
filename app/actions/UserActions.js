@@ -29,8 +29,9 @@ export function authenticateOnDDDServer(user) {
                 return response.json();
             })
             .then(parsedResponse => {
-                let activeUser = user;
-                return user.userBeerData = parsedResponse;
+                let activeUser = Object.assign({}, user);
+                activeUser.userBeerData = parsedResponse;
+                return activeUser;
 
             })
             .catch(error => {

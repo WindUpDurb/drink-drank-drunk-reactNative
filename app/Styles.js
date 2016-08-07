@@ -37,6 +37,39 @@ export const styles = StyleSheet.create({
         backgroundColor: "#3F51B5"
     },
 
+    homeOuterView: {
+        flex: 1,
+        flexDirection: "column"
+    },
+    profileOuterView: {
+        flex: 1,
+        flexDirection: "row"
+    },
+
+    profileCard: {
+        backgroundColor: "white"
+    },
+
+    circleImage: {
+        height: 100,
+        borderRadius: 50,
+        width: 100
+    },
+
+    ToProfileSideTab: {
+        flex: .5,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#78909C"
+    },
+
+    toBeersSideTab: {
+        flex: .5,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#607D8B"
+    },
+
     loadingIndicator: {
         height: 75,
         position: "absolute",

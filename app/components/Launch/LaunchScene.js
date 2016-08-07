@@ -2,7 +2,6 @@
 
 import React, {PropTypes} from "react";
 import {View, Text, Button, Image, ActivityIndicator} from "react-native";
-import {RenderButton} from "../common/RenderButton";
 import {connect} from "react-redux";
 import {styles} from "../../Styles";
 import {Actions, ActionConst} from "react-native-router-flux";
@@ -23,11 +22,7 @@ class LaunchScene extends React.Component {
     }
 
     componentDidUpdate() {
-        console.log("this.props: ", this.props);
-        console.log("directory: ", this.props.beerDirectories);
-        console.log("user: ", this.props.activeUser);
         if (this.props.activeUser && this.props.beerDirectories) {
-            console.log("here");
             Actions.home({type: ActionConst.PUSH});
         }
     }
@@ -74,7 +69,6 @@ function mapStateToProps(state, ownProps) {
     let fetching = state.fetching > 0;
     let beerDirectories = !!state.beerDirectories;
     let activeUser = !!state.activeUser;
-    console.log("active user: ", activeUser)
     return {
         fetching,
         activeUser,
