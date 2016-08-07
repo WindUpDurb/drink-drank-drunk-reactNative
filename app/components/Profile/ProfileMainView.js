@@ -11,7 +11,7 @@ export const ProfileMainView = ({activeUser}) => {
     let width = Dimensions.get("window").width;
     return (
         <Image
-            style={[styles.backgroundImageContainer, {width: width * .75}]}
+            style={[styles.backgroundImageContainer, {width: width * .85}]}
             source={require("../../Images/profileScene.jpg")}>
         <ProfileCard
             activeUser={activeUser}/>

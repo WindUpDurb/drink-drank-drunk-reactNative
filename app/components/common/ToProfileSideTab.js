@@ -3,6 +3,7 @@
 import React, {PropTypes} from "react";
 import {View, Text, Dimensions, Image, TouchableHighlight} from "react-native";
 import {styles} from "../../Styles";
+import Icon from 'react-native-vector-icons/EvilIcons';
 
 
 export const ToProfileSideTab = ({changeScene}) => {
@@ -11,12 +12,12 @@ export const ToProfileSideTab = ({changeScene}) => {
     return (
         <TouchableHighlight
             value="profile"
-            style={[styles.ToProfileSideTab, {width: width * .25}]}
+            style={[styles.ToProfileSideTab, {width: width * .15}]}
             onPress={toProfileScene}>
                 <Image
                     style={styles.backgroundImageContainer}
                     source={require("../../Images/absurdity.png")}>
-                    <Image source={require("../../Images/userButton.png")} />
+                    <Icon name="user" size={50} color="white" />
                 </Image>
         </TouchableHighlight>
     );

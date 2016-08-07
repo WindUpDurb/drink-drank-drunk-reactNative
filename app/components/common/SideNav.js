@@ -10,7 +10,8 @@ import {styles} from "../../Styles";
 export const SideNav = ({changeScene}) => {
     return (
         <View>
-            <ToBeersSideTab />
+            <ToBeersSideTab 
+                changeScene={changeScene}/>
             <ToProfileSideTab
                 changeScene={changeScene}/>
         </View>

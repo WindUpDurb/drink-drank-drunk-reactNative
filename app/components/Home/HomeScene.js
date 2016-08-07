@@ -14,9 +14,8 @@ class HomeScene extends React.Component {
     }
     
     changeSceneTo(event) {
-        if (event === "profile") {
-            Actions.profile({type: ActionConst.PUSH});
-        }
+        if (event === "profile") Actions.profile({type: ActionConst.PUSH});
+        if (event === "beerDirectory") Actions.beerDirectory({type: ActionConst.PUSH});
     }
 
     render() {

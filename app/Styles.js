@@ -14,6 +14,10 @@ export const styles = StyleSheet.create({
         resizeMode: "cover"
     },
 
+    backgroundWallpaper: {
+        
+    },
+    
     launchText: {
         fontSize: 23,
         color: "whitesmoke"
@@ -47,10 +51,12 @@ export const styles = StyleSheet.create({
     },
 
     profileCard: {
-        backgroundColor: "white"
+        backgroundColor: "white",
+        alignItems: "center"
     },
 
     circleImage: {
+        marginTop: 10,
         height: 100,
         borderRadius: 50,
         width: 100

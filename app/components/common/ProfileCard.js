@@ -15,6 +15,7 @@ export const ProfileCard = ({activeUser}) => {
             <Image
                 style={styles.circleImage}
                 source={{uri: activeUser.photo}}/>
+            <Text>{activeUser.name.split(" ")[0]}</Text>
         </View>
     );
 };
