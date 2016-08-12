@@ -34,16 +34,20 @@ export const styles = StyleSheet.create({
     },
     
     launchButton: {
-        padding: 10,
+        padding: 8,
         overflow: "hidden",
-        borderRadius: 4,
         marginTop: 10,
-        backgroundColor: "#3F51B5"
+        backgroundColor: "#00897B",
+        elevation: 3
     },
 
+    buttonTextWhite: {
+      color: "white"
+
+    },
     homeOuterView: {
         flex: 1,
-        flexDirection: "column"
+        flexDirection: "row"
     },
     profileOuterView: {
         flex: 1,
@@ -52,7 +56,15 @@ export const styles = StyleSheet.create({
 
     profileCard: {
         backgroundColor: "white",
-        alignItems: "center"
+        alignItems: "center",
+        elevation: 3
+    },
+
+    beerCardView: {
+        marginTop: 15,
+        backgroundColor: "white",
+        alignItems: "center",
+        elevation: 3
     },
 
     circleImage: {
@@ -60,6 +72,13 @@ export const styles = StyleSheet.create({
         height: 100,
         borderRadius: 50,
         width: 100
+    },
+
+    //look into better way of setting image size responsively
+    beerCardImage: {
+        width: 200,
+        height: 200,
+        resizeMode: "cover"
     },
 
     ToProfileSideTab: {

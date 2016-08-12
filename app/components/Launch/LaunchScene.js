@@ -47,7 +47,7 @@ class LaunchScene extends React.Component {
                     Drink, Drank, Drunk
                 </Text>
                 <GoogleSigninButton
-                    style={{width: 48, height: 48}}
+                    style={{width: 48, height: 48, elevation: 2}}
                     size={GoogleSigninButton.Size.Icon}
                     color={GoogleSigninButton.Color.Dark}
                     onPress={this.signIn}/>
